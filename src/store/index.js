@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import postModule from "./posts"
 axios.defaults.baseURL = 'http://thisjesusmartinez.com:3001/api/v1';
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 
@@ -54,25 +55,26 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-    SET_POSTS (state, posts) {
-			state.posts = posts;
-		},
-		CLEAR_POSTS (state) {
-			state.posts = null;
-		}
+    SET_POSTS(state, posts) {
+      state.posts = posts;
+    },
+    CLEAR_POSTS(state) {
+      state.posts = null;
+    }
   },
   actions: {
-    async getPosts (context) {
-			try {
-			 	context.commit('CLEAR_POSTS');
-				let response = await axios.get('/posts');
-				context.commit('SET_POSTS', response.data);
-			} catch (error) {
-				console.log(error);
-				throw error;
-			}
-		}
+    async getPosts(context) {
+      try {
+        context.commit('CLEAR_POSTS');
+        let response = await axios.get('/posts');
+        context.commit('SET_POSTS', response.data);
+      } catch (error) {
+        console.log(error);
+        throw error;
+      }
+    }
   },
   modules: {
+    postModule
   },
 });
