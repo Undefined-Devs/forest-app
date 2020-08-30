@@ -15,23 +15,29 @@
               </div>
               <div class="form-group">
                 <label for="email"> Correo </label>
-                <input type="email" class="form-control" id="email"
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
                   pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,3}(?:\.[a-zA-Z]{2})?$"
-                  />
+                />
               </div>
               <div class="form-group">
                 <label for="password"> Contraseña </label>
-                <input type="password" class="form-control"  id="password"
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
                   pattern="(?=^.{6,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-                  />
+                />
               </div>
               <div class="form-group">
-                <label for="fist_name"> Nombres </label>
-                <input type="text" class="form-control" id="fist_name" />
+                <label for="fistname"> Nombres </label>
+                <input type="text" class="form-control" id="fistname" />
               </div>
               <div class="form-group">
-                <label for="last_name"> Apellidos </label>
-                <input type="text" class="form-control" id="last_name" />
+                <label for="lastname"> Apellidos </label>
+                <input type="text" class="form-control" id="lastname" />
               </div>
               <div class="form-group">
                 <label for="age"> Edad </label>
@@ -58,11 +64,18 @@ import axios from "axios";
 export default {
   name: "NewUser",
   methods: {
-    async register(route, payload, params = null) {
+    async register() {
       try {
-        let response;
-        if (params) response = await axios.post(route, payload, params);
-        return response;
+        return (response = await axios.post("/register", {
+          email: document.querySelector('#email'),
+          password: document.querySelector('#password'),
+          profile_attributes: {
+            first_name: document.querySelector('#firstname'),
+            last_name: document.querySelector('#lastname'),
+            age: document.querySelector('#age'),
+            nickname: document.querySelector('#username'),
+          },
+        }));
       } catch (error) {
         throw error;
       }
