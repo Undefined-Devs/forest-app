@@ -50,7 +50,8 @@
 
     <li class="nav-item">
       <a class="nav-link" href="/new-user">
-        <span>Nuevo Usuario</span></a
+        <i class="fas fa-users"></i>
+        <span>Registrarse</span></a
       >
     </li>
 
