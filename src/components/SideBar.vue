@@ -44,12 +44,6 @@
       >
     </li>
 
-    <li :class="route == 'NewPost' ? 'nav-item active' : 'nav-item'">
-      <a class="nav-link" href="/new-post">
-        <span>Aceptar Reto</span></a
-      >
-    </li>
-
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block" />
 

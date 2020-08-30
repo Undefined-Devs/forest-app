@@ -21,9 +21,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -33,9 +33,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -45,9 +45,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -57,9 +57,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -69,9 +69,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -81,9 +81,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -93,9 +93,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -105,9 +105,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
@@ -117,9 +117,9 @@
               <div class="card-body">
                 <h5 class="card-title">Haz una maceta</h5>
                 <p
-                  class="card-text"
+                  class="card-text text-justify"
                 >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <button class="btn btn-primary">Aceptar reto</button>
+                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
               </div>
             </div>
           </div>
