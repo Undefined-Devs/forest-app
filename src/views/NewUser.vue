@@ -8,10 +8,10 @@
         <div class="row">
           <div class="col-md-12">
             <h1>Registro</h1>
-            <form role="form" @submit="register()">
+            <form role="form" @submit="register">
               <div class="form-group">
                 <label for="username"> Usuario </label>
-                <input type="text" class="form-control" id="username" v-model="this.nickname" />
+                <input type="text" class="form-control" id="username" v-model="nickname" />
               </div>
               <div class="form-group">
                 <label for="email"> Correo </label>
@@ -20,7 +20,7 @@
                   class="form-control"
                   id="email"
                   pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,3}(?:\.[a-zA-Z]{2})?$"
-                  v-model="this.email"
+                  v-model="email"
                 />
               </div>
               <div class="form-group">
@@ -29,27 +29,21 @@
                   type="password"
                   class="form-control"
                   id="password"
-                  v-model="this.password"
+                  pattern="(?=^.{6,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                  v-model="password"
                 />
               </div>
               <div class="form-group">
                 <label for="fistname"> Nombres </label>
-                <input type="text" class="form-control" id="fistname" v-model="this.name" />
+                <input type="text" class="form-control" id="fistname" v-model="name" />
               </div>
               <div class="form-group">
                 <label for="lastname"> Apellidos </label>
-                <input type="text" class="form-control" id="lastname" v-model="this.last_name" />
+                <input type="text" class="form-control" id="lastname" v-model="last_name" />
               </div>
               <div class="form-group">
                 <label for="age"> Edad </label>
-                <input
-                  type="number"
-                  min="1"
-                  max="99"
-                  class="form-control"
-                  id="age"
-                  v-model="this.age"
-                />
+                <input type="number" min="1" max="99" class="form-control" id="age" v-model="age" />
               </div>
               <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
@@ -85,13 +79,13 @@ export default {
     async register() {
       try {
         return (response = await axios.post("/register", {
-          email: email,
-          password: password,
+          email: this.email,
+          password: this.password,
           profile_attributes: {
-            name: name,
-            last_name: last_name,
-            age: age,
-            nickname: nickname,
+            name: this.name,
+            last_name: this.last_name,
+            age: this.age,
+            nickname: this.nickname,
           },
         }));
       } catch (error) {
