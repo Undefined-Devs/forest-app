@@ -8,7 +8,7 @@
         <div class="row">
           <div class="col-md-12">
             <h1>Registro</h1>
-            <form role="form" @submit="register">
+            <div >
               <div class="form-group">
                 <label for="username"> Usuario </label>
                 <input type="text" class="form-control" id="username" v-model="nickname" />
@@ -29,7 +29,6 @@
                   type="password"
                   class="form-control"
                   id="password"
-                  pattern="(?=^.{6,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
                   v-model="password"
                 />
               </div>
@@ -45,8 +44,8 @@
                 <label for="age"> Edad </label>
                 <input type="number" min="1" max="99" class="form-control" id="age" v-model="age" />
               </div>
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
+              <button type="submit" class="btn btn-primary" @click="register">Enviar</button>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +77,7 @@ export default {
   methods: {
     async register() {
       try {
-        return (response = await axios.post("/register", {
+        return (response = await axios.post("http://thisjesusmartinez.com:3001/api/v1/users/", {
           email: this.email,
           password: this.password,
           profile_attributes: {
