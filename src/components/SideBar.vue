@@ -6,6 +6,7 @@
   >
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <i class="fas fa-tree"></i>
       <div class="sidebar-brand-text mx-3">Forest App <sup>1.0</sup></div>
     </a>
 
@@ -35,15 +36,21 @@
 
     <li class="nav-item active">
       <a class="nav-link" href="/">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <i class="fas fa-home"></i>
         <span>Inicio</span></a
       >
     </li>
 
     <li class="nav-item">
       <a class="nav-link" href="/challenges">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <i class="fas fa-fan"></i>
         <span>Retos</span></a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="/new-user">
+        <span>Nuevo Usuario</span></a
       >
     </li>
 
