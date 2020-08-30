@@ -19,8 +19,8 @@
                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between"
               >
                 <div class="row">
-                  <div class="col h5 mb-0 text-gray-800">
-                    <strong>Cristopher PS</strong>
+                  <div class="col h5 mb-0 text-gray-800" v-if="post.user.profile">
+                    <strong class="capi">{{ post.user.profile.name }} {{ post.user.profile.last_name }}</strong>
                     <i class="fas fa-crown mr-1"></i>
                     <label class="font-weight-bold text-success text-uppercase mb-1">+85k</label>
                   </div>
@@ -146,3 +146,9 @@ export default {
   },
 };
 </script>
+<style>
+  .capi {
+    text-transform: capitalize;
+    padding-right: 5px;
+  }
+</style>
