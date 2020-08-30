@@ -15,11 +15,15 @@
               </div>
               <div class="form-group">
                 <label for="email"> Correo </label>
-                <input type="email" class="form-control" id="email" />
+                <input type="email" class="form-control" id="email"
+                  pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,3}(?:\.[a-zA-Z]{2})?$"
+                  />
               </div>
               <div class="form-group">
                 <label for="password"> Contraseña </label>
-                <input type="password" class="form-control" id="password" />
+                <input type="password" class="form-control"  id="password"
+                  pattern="(?=^.{6,}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+                  />
               </div>
               <div class="form-group">
                 <label for="fist_name"> Nombres </label>
@@ -33,7 +37,7 @@
                 <label for="age"> Edad </label>
                 <input type="number" min="1" max="99" class="form-control" id="age" />
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
           </div>
         </div>
@@ -49,8 +53,20 @@
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 export default {
   name: "NewUser",
+  methods: {
+    async register(route, payload, params = null) {
+      try {
+        let response;
+        if (params) response = await axios.post(route, payload, params);
+        return response;
+      } catch (error) {
+        throw error;
+      }
+    },
+  },
 };
 </script>
