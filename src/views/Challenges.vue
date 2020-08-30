@@ -4,12 +4,14 @@
     <!-- Main Content -->
     <div id="content">
       <!-- Begin Page Content -->
-      <div class="container mt-4">
+      <div class="container-fluid mt-4">
 
         
-        <div class="row" style="background-image: url('../assets/banner.jpeg');background-color: #cccccc;">
-          <div>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="row bg-dark text-white text-center pl-2 pr-2 mt-0 ml-0 mr-0 mb-4" style="height: 15rem;background-image: url('./assets/banner.jpeg');">
+          <div class="d-flex justify-content-center align-items-center w-100 h-100">
+            <p class="h1">
+              Acepta un reto y ayuda a salvar el planeta
+            </p>
           </div>
         </div>
         
