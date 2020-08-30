@@ -61,6 +61,8 @@
 
 <script>
 import axios from "axios";
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 // @ is an alias to /src
 export default {
   name: "NewUser",
@@ -77,16 +79,19 @@ export default {
   methods: {
     async register() {
       try {
-        return (response = await axios.post("http://thisjesusmartinez.com:3001/api/v1/users/", {
-          email: this.email,
-          password: this.password,
-          profile_attributes: {
-            name: this.name,
-            last_name: this.last_name,
-            age: this.age,
-            nickname: this.nickname,
-          },
-        }));
+        let response = await axios.post("http://thisjesusmartinez.com:3001/api/v1/users", {
+          user: {
+            email: this.email,
+            password: this.password,
+            profile_attributes: {
+              name: this.name,
+              last_name: this.last_name,
+              age: this.age,
+              nickname: this.nickname,
+            },
+          }
+        });
+        console.log(response.data);
       } catch (error) {
         throw error;
       }
