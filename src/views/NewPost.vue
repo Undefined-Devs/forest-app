@@ -7,22 +7,25 @@
       <div class="container-fluid mt-4">
         <div class="row">
           <div class="col-md-12">
-            <h1>Reto aceptado</h1>
+            <h1>Estás a punto de aceptar el reto 🙌🏼</h1>
+            <hr>
             <form role="form">
               <div class="form-group">
-                <label for="titulo">Titulo</label>
+                <label for="titulo">Título</label>
                 <input type="text" class="form-control" id="title" />
               </div>
               <div class="form-group">
-                <label for="descripcion">Descripcion</label>
+                <label for="descripcion">Descripción</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
               <div class="form-group">
-                <label for="descripcion">Subir video</label>
+                <label for="descripcion">Elige tu video</label>
                 <input class="ml-4" for="video" type="file" id="video" accept="video/mp4" />
               </div>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary mr-2">Enviar</button>
+              <a class="btn btn-secondary" href="/challenges">Cancelar</a>
+
             </form>
           </div>
         </div>
