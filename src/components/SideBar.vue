@@ -13,11 +13,11 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0" />
 
-    <li class="nav-item">
+    <li class="nav-item" v-if="currentUser">
       <a
         class="nav-link text-center text-white"
       >
-        <span class="mr-2 d-none d-lg-inline "><strong>Cristopher PS</strong></span>
+        <span class="mr-2 d-none d-lg-inline "><strong>{{currentUser.profile.name}}</strong></span>
         <i class="fas fa-user text-white"></i>
       </a>
     </li>
@@ -47,22 +47,22 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block" />
 
-    <li :class="route == 'Login' ? 'nav-item active' : 'nav-item'">
+    <li :class="route == 'Login' ? 'nav-item active' : 'nav-item'" v-if="!currentUser">
       <a class="nav-link" href="/login">
         <i class="fas fa-sign-in-alt"></i>
         <span>Ingresar</span></a
       >
     </li>
 
-    <li :class="route == 'NewUser' ? 'nav-item active' : 'nav-item'">
+    <li :class="route == 'NewUser' ? 'nav-item active' : 'nav-item'" v-if="!currentUser">
       <a class="nav-link" href="/new-user">
         <i class="fas fa-users"></i>
         <span>Registrarse</span></a
       >
     </li>
 
-    <li :class="'nav-item'">
-      <a class="nav-link" href="/">
+    <li :class="'nav-item'" v-if="currentUser">
+      <a class="nav-link cursor-pointer" @click="logout">
         <i class="fas fa-sign-out-alt"></i>
         <span>Salir</span></a
       >
@@ -73,11 +73,20 @@
 </template>
 
 <script>
+import auth from "@/helpers/auth";
 export default {
   name: 'SideBar',
   computed: {
-    route () {      
+    route () {
       return this.$router.history.current.name;
+    },
+    currentUser () { 
+      return this.$store.state.currentUser;
+    }
+  },
+  methods: {
+    logout () {
+      auth.logout();
     }
   }
 };
