@@ -7,9 +7,14 @@
       <div class="container-fluid mt-4">
         <div class="row">
           <div class="col-md-12">
-            <h1>Estás a punto de aceptar el reto 🙌🏼</h1>
+            <h1>Estás a punto de cumplir el reto 😎</h1>
             <hr>
             <form role="form">
+              <template v-if="challenge">
+                <h3>Reto: {{challenge.name}}</h3>
+                <p>{{challenge.description}}</p>
+                <hr>
+              </template>
               <div class="form-group">
                 <label for="titulo">Título</label>
                 <input type="text" class="form-control" id="title" />
@@ -23,8 +28,8 @@
                 <input class="ml-4" for="video" type="file" id="video" accept="video/mp4" />
               </div>
 
-              <button class="btn btn-primary mr-2">Enviar</button>
-              <a class="btn btn-secondary" href="/challenges">Cancelar</a>
+              <button class="btn btn-primary mr-2">Reto cumplido 👊🏼</button>
+              <a class="btn btn-secondary" href="/challenges">Cancelar 🙄</a>
 
             </form>
           </div>
@@ -44,5 +49,16 @@
 // @ is an alias to /src
 export default {
   name: "NewUser",
+  props: ['challengeId'],
+  async created () {
+    await this.$store.dispatch('getChallenges');
+  },
+  computed: {
+    challenge () {
+      if (!this.$store.state.challenges) return;
+      let challenge = this.$store.state.challenges.find(challenge => (challenge.id == this.challengeId));
+      return challenge ? challenge : null; 
+    }
+  }
 };
 </script>
