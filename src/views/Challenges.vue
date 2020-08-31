@@ -6,7 +6,6 @@
       <!-- Begin Page Content -->
       <div class="container-fluid mt-4">
 
-        
         <div class="row bg-dark text-white text-center pl-2 pr-2 mt-0 ml-0 mr-0 mb-4" style="height: 15rem;background-image: url('./assets/banner.jpeg');">
           <div class="d-flex justify-content-center align-items-center w-100 h-100">
             <p class="h1">
@@ -14,112 +13,18 @@
             </p>
           </div>
         </div>
-        
+
         <div class="row">
-          <div class="col-xl-4 mb-4">
+          <div class="col-xl-4 mb-4" v-for="challenge in challenges" :key="`challenge-${challenge.id}`">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
+                <h5 class="card-title">{{challenge.name}}</h5>
                 <p
                   class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-xl-4 mb-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Haz una maceta</h5>
-                <p
-                  class="card-text text-justify"
-                >Realiza una maceta con 3 botellas de plastico y envia una foto o graba un video del proceso que hiciste</p>
-                <a class="btn btn-primary" href="/new-post">Aceptar reto</a>
+                >
+                  {{challenge.description}}
+                </p>
+                <a class="btn btn-primary" :href="currentUser ? `/new-post/${challenge.id}`: `/login`">Aceptar reto 👊🏼</a>
               </div>
             </div>
           </div>
@@ -140,6 +45,20 @@
 // @ is an alias to /src
 export default {
   name: "Challenges",
+  data () {
+    return {
+      challenges: null
+    }
+  },
+  async created () {
+    await this.$store.dispatch('getChallenges');
+    this.challenges = this.$store.state.challenges;
+  },
+  computed: {
+    currentUser () { 
+      return this.$store.state.currentUser;
+    }
+  }
 };
 </script>
 
