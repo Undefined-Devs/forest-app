@@ -17,12 +17,15 @@
                     </div>
                     <form class="user">
                         <div class="form-group">
-                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Escribe tu correo electrónico">
+                            <input type="email" v-model="email" class="form-control form-control-user" id="exampleInputEmail"  placeholder="Escribe tu correo electrónico">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña">
+                            <input type="password" v-model="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Contraseña">
                         </div>
-                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                        <div class="alert alert-danger" role="alert" v-if="errorMessage">
+                            {{errorMessage}}
+                        </div>
+                        <a @click="login" class="btn btn-primary btn-user btn-block">
                             Acceder
                         </a>
                     </form>
@@ -43,7 +46,37 @@
 </template>
 
 <script>
+import auth from '@/helpers/auth';
 export default {
   name: 'Login',
+  data: function () {
+    return {
+      email: "",
+      password: "",
+      errorMessage: '',
+      successMessage: '',
+      submitted: false
+    };
+  },
+  methods: {
+    async login() {
+      try {
+        this.successMessage = '';
+        this.errorMessage = '';
+	    this.submitted = true;
+        await auth.authenticate({
+          email: this.email,
+          password: this.password
+        });
+        window.location = '/';
+      } catch (error) {
+        console.log(error);
+        this.errorMessage = 'Ocurrio un error, por favor revisa los campos.';
+        if (error.response.data.response) this.errorMessage = error.response.data.response;
+      } finally {
+        this.submitted = false;
+      }
+    },
+  },
 };
 </script>
