@@ -7,7 +7,8 @@
       <div class="container-fluid mt-4">
         <div class="row">
           <div class="col-md-12">
-            <h1>Registro</h1>
+            <h1>Te estás uniendo a la comunidad 🙌🏼</h1>
+            <hr>
             <div >
               <div class="form-group">
                 <label for="username"> Usuario </label>
@@ -44,7 +45,13 @@
                 <label for="age"> Edad </label>
                 <input type="number" min="1" max="99" class="form-control" id="age" v-model="age" />
               </div>
-              <button type="submit" class="btn btn-primary" @click="register">Enviar</button>
+              <div class="alert alert-success" role="alert" v-if="successMessage">
+                {{successMessage}} <a href="/login">Ingresar</a>
+              </div>
+              <div class="alert alert-danger" role="alert" v-if="errorMessage">
+                {{errorMessage}}
+              </div>
+              <button type="submit" class="btn btn-primary" @click="register">Registrarse 👊🏼</button>
             </div>
           </div>
         </div>
@@ -74,12 +81,16 @@ export default {
       last_name: "",
       age: "",
       nickname: "",
+      successMessage: '',
+      errorMessage: ''
     };
   },
   methods: {
     async register() {
       try {
-        let response = await axios.post("http://thisjesusmartinez.com:3001/api/v1/users", {
+        this.successMessage = '';
+        this.errorMessage = '';
+        let response = await axios.post("http://thisjesusmartinez.com/api/v1/users", {
           user: {
             email: this.email,
             password: this.password,
@@ -91,9 +102,11 @@ export default {
             },
           }
         });
+        this.successMessage = 'Tu usuario se ha creado correctamente. Puedes iniciar sesión.'
         console.log(response.data);
       } catch (error) {
-        throw error;
+        console.log('error');
+        this.errorMessage = 'Ocurrio un error, por favor revisa los campos.'
       }
     },
   },
