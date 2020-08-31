@@ -14,7 +14,6 @@ export async function updatePost({ commit }, resource) {
     }).catch((err) => {
       console.log(err);
     });
-
 }
 
 export async function getPost({ commit }, resource) {

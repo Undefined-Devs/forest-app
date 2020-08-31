@@ -20,13 +20,15 @@
               >
                 <div class="row">
                   <div class="col h5 mb-0 text-gray-800" v-if="post.user.profile">
-                    <strong class="capi">{{ post.user.profile.name }} {{ post.user.profile.last_name }}</strong>
+                    <strong
+                      class="capi"
+                    >{{ post.user.profile.name }} {{ post.user.profile.last_name }}</strong>
                     <i class="fas fa-crown mr-1"></i>
                     <label class="font-weight-bold text-success text-uppercase mb-1">+85k</label>
                   </div>
                   <div class="col mb-0 text-right">
                     <a
-                      href="/"
+                      href="#"
                       class="badge badge-success"
                       style="font-size: 0.8rem;"
                     >Reto: Planta 3 arboles en tu comunidad</a>
@@ -147,8 +149,8 @@ export default {
 };
 </script>
 <style>
-  .capi {
-    text-transform: capitalize;
-    padding-right: 5px;
-  }
+.capi {
+  text-transform: capitalize;
+  padding-right: 5px;
+}
 </style>
